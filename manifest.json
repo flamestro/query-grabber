@@ -2,11 +2,29 @@
   "name": "Path Grabber",
   "description": "This extension allows users to instantly copy path parameters from links.",
   "version": "1.0",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "background": {
-    "service_worker": "background.js"
+    "page": "/view/background.html"
   },
+  "icons": {
+  "16": "assets/clipboard16.png",
+  "32": "assets/clipboard32.png",
+  "64": "assets/clipboard64.png",
+  "128": "assets/clipboard128.png"
+},
   "permissions": [
-    "storage"
-  ]
+    "storage",
+    "contextMenus",
+    "clipboardWrite"
+  ],
+  "browser_action": {
+    "default_title": "Path Grabber",
+    "default_popup": "/view/popup.html",
+    "default_icon": {
+      "16": "assets/clipboard16.png",
+      "32": "assets/clipboard32.png",
+      "64": "assets/clipboard64.png",
+      "128": "assets/clipboard128.png"
+    }
+  }
 }
