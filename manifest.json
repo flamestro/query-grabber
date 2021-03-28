@@ -1,6 +1,6 @@
 {
   "name": "Path Grabber",
-  "description": "This extension allows users to instantly copy path parameters from links.",
+  "description": "This extension allows users to copy path parameters from links.",
   "version": "1.0",
   "manifest_version": 2,
   "background": {
