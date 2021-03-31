@@ -1,5 +1,3 @@
-let pathParameter = '';
-
 const contextMenuItem = {
     "id": "pathParamGrabber",
     "title": "Grab Parameter",
@@ -7,7 +5,7 @@ const contextMenuItem = {
 }
 
 // https://stackoverflow.com/questions/979975/how-to-get-the-value-from-the-get-parameters
-function getQueryParams(url) {
+const getQueryParams = (url) => {
     url = url.split('+').join(' ');
 
     var params = {},
@@ -22,7 +20,7 @@ function getQueryParams(url) {
 }
 
 //https://stackoverflow.com/questions/3436102/copy-to-clipboard-in-chrome-extension
-function copyToClipboard(textToClip) {
+const copyToClipboard = (textToClip) => {
     let copyFrom = document.createElement("textarea");
     copyFrom.textContent = textToClip;
     document.body.appendChild(copyFrom);
@@ -41,12 +39,18 @@ const clickHandler = (event) => {
     }
 }
 
-chrome.runtime.onInstalled.addListener(() => {
+const loadApp = () => {
     console.log("init")
-    chrome.storage.sync.set({pathParameter});
-
     chrome.contextMenus.create(contextMenuItem);
 
     chrome.contextMenus.onClicked.addListener(clickHandler);
     console.log("done")
+}
+
+chrome.runtime.onInstalled.addListener(() => {
+    loadApp();
+});
+
+chrome.runtime.onStartup.addListener(() => {
+    loadApp();
 });
