@@ -72,7 +72,7 @@ const clickHandler = (event) => {
                 copyToClipboard(getQueryParams(event.linkUrl)[pathParameter])
                 notifyUserWithText(`Copied ${pathParameter}`);
             } else {
-                notifyUserWithText(`No ${pathParameter} in link`);
+                notifyUserWithText(`${pathParameter ? pathParameter : "Selected param"} not in link`);
             }
         });
     }
