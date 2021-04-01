@@ -5,6 +5,13 @@ pathParameterInput.addEventListener("keyup", () => {
     chrome.storage.sync.set({ pathParameter: pathParameter });
 })
 
+pathParameterInput.addEventListener("keydown", (event) => {
+    if(event.key === "Enter")
+    {
+        window.close();
+    }
+})
+
 chrome.storage.sync.get("pathParameter", ({pathParameter}) => {
     pathParameterInput.placeholder = pathParameter ? `current: ${pathParameter}`  : "Enter Parameter";
 });
