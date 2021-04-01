@@ -2,7 +2,7 @@
 
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
-[V 1.0 on Chrome Web Store](https://chrome.google.com/webstore/detail/path-grabber/laihdmndcnfpddojmbmablbkngbojmea)
+[V 1.1 on Chrome Web Store](https://chrome.google.com/webstore/detail/path-grabber/laihdmndcnfpddojmbmablbkngbojmea)
 
 # PathGrabber
 This is a chrome extension to copy specified path params directly to your clipboard.
