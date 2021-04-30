@@ -1,5 +1,5 @@
 const contextMenuItem = {
-    "id": "pathParamGrabber",
+    "id": "queryParamGrabber",
     "title": "Grab Parameter",
     "contexts": ["selection", "link"],
 }
@@ -53,7 +53,7 @@ const notifyUserWithText = (text) => {
         {
             type: "basic",
             iconUrl: "/assets/clipboard128.png",
-            title: "Path Grabber",
+            title: "Query Grabber",
             message: text
         },
         () => {
@@ -66,13 +66,13 @@ const notifyUserWithText = (text) => {
 
 const clickHandler = (event) => {
     if (event.menuItemId === contextMenuItem.id && event.linkUrl) {
-        chrome.storage.sync.get("pathParameter", ({pathParameter}) => {
-            if (getQueryParams(event.linkUrl)[pathParameter]) {
-                console.log(`${pathParameter} = ${getQueryParams(event.linkUrl)[pathParameter]}`)
-                copyToClipboard(getQueryParams(event.linkUrl)[pathParameter])
-                notifyUserWithText(`Copied ${pathParameter}`);
+        chrome.storage.sync.get("queryParameter", ({queryParameter}) => {
+            if (getQueryParams(event.linkUrl)[queryParameter]) {
+                console.log(`${queryParameter} = ${getQueryParams(event.linkUrl)[queryParameter]}`)
+                copyToClipboard(getQueryParams(event.linkUrl)[queryParameter])
+                notifyUserWithText(`Copied ${queryParameter}`);
             } else {
-                notifyUserWithText(`${pathParameter ? pathParameter : "Selected param"} not in link`);
+                notifyUserWithText(`${queryParameter ? queryParameter : "Selected param"} not in link`);
             }
         });
     }

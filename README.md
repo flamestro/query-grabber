@@ -4,14 +4,11 @@
 
 [V 1.2.4 on Chrome Web Store](https://chrome.google.com/webstore/detail/path-grabber/laihdmndcnfpddojmbmablbkngbojmea)
 
-# PathGrabber
-This is a chrome extension to copy specified path params directly to your clipboard.
+# QueryGrabber
+This is a chrome extension to copy specified query params directly to your clipboard.
 
 # Description
-With this extension developers can copy specified path parameters from inline links directly to their clipboard.
-
-This extension is open-source. The source-code can be found on GitHub.
- https://github.com/flamestro/PathGrabber
+With this extension developers can copy specified query parameters from inline links directly to their clipboard.
 
 
 Extension by Flamestro

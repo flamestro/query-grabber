@@ -1,17 +1,17 @@
-let pathParameterInput = document.getElementById("pathParam");
+let queryParameterInput = document.getElementById("queryParam");
 
-pathParameterInput.addEventListener("keyup", () => {
-    let pathParameter = pathParameterInput.value
-    chrome.storage.sync.set({ pathParameter: pathParameter });
+queryParameterInput.addEventListener("keyup", () => {
+    let queryParameter = queryParameterInput.value
+    chrome.storage.sync.set({ queryParameter: queryParameter });
 })
 
-pathParameterInput.addEventListener("keydown", (event) => {
+queryParameterInput.addEventListener("keydown", (event) => {
     if(event.key === "Enter")
     {
         window.close();
     }
 })
 
-chrome.storage.sync.get("pathParameter", ({pathParameter}) => {
-    pathParameterInput.placeholder = pathParameter ? `current: ${pathParameter}`  : "Enter Parameter";
+chrome.storage.sync.get("queryParameter", ({queryParameter}) => {
+    queryParameterInput.placeholder = queryParameter ? `current: ${queryParameter}`  : "Enter Parameter";
 });
