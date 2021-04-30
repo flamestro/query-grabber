@@ -7,8 +7,11 @@
 # QueryGrabber
 This is a chrome extension to copy specified query params directly to your clipboard.
 
-# Description
-With this extension developers can copy specified query parameters from inline links directly to their clipboard.
-
+# How to?
+1. Open the popup of this extension
+2. Enter a query parameter that you want to register in the input field and press enter or close the popup
+3. Right click on a link or a text selection to open the context menu of your browser
+4. Select the context item that says "grab parameter"
+5. The parameter is now in your clipboard and can be pasted
 
 Extension by Flamestro
