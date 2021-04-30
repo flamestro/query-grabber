@@ -5,40 +5,56 @@
     <title>Path Grabber</title>
     <style>
         body {
-            background-color: #fad9a9;
+            background-color: #f2d7a8;
+            color: #343434;
+            font-family: "Roboto Medium", sans-serif;
         }
 
         label {
             font-size: 18px;
-            font-family: "Roboto", sans-serif;
+            font-family: "Roboto Medium", sans-serif;
+            display: flex;
+            justify-content: center;
         }
 
         input {
-            border-radius: 15%;
+            border-radius: 15px;
             border: 2px solid black;
+            background-color: #faf9ec;
             margin-top: 10px;
+            text-align: center;
         }
 
         #credits {
-            color: #5F6368;
+            text-align: center;
         }
 
         #tutorial {
             margin-top: 20px;
-            background-color: white;
+            background-color: #faf9ec;
+            border-radius: 15px;
             border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #343434;
+        }
+
+        span {
+            padding-bottom: 10px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 <div>
-    <label for="pathParam">Path parameter to grab:</label>
+    <label for="pathParam">Query param to grab:</label>
     <input type="text" id="pathParam" name="pathParam">
     <br/>
     <div id="tutorial">
-        <h4>Tutorial:</h4>
-        The parameter that you enter on the top will be clipped if you press right click on a link and click this
-        applications item field in the context menu.
+        <h2>How to?</h2>
+        <span>The parameter that you enter on the top will be clipped if you press right click on a link and click this
+            applications item field in the context menu.</span>
     </div>
 </div>
 <br/>
