@@ -2,7 +2,7 @@
 
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
-[V 1.4.0 on Chrome Web Store](https://chrome.google.com/webstore/detail/query-grabber/laihdmndcnfpddojmbmablbkngbojmea)
+[V 1.4.1 on Chrome Web Store](https://chrome.google.com/webstore/detail/query-grabber/laihdmndcnfpddojmbmablbkngbojmea)
 
 [V 1.4.1 on addons.mozilla.org](https://addons.mozilla.org/de/firefox/addon/query-grabber/)
 # QueryGrabber
