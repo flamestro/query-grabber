@@ -4,6 +4,12 @@ const contextMenuItem = {
     "contexts": ["selection", "link"],
 }
 
+const contextMenuItemUrl = {
+    "id": "customUrlOpener",
+    "title": "Go to path",
+    "contexts": ["selection", "link"],
+}
+
 // https://stackoverflow.com/questions/979975/how-to-get-the-value-from-the-get-parameters
 const getQueryParams = (url) => {
     url = url.split('+').join(' ');
@@ -64,23 +70,50 @@ const notifyUserWithText = (text) => {
     );
 }
 
-const clickHandler = (event) => {
-    if (event.menuItemId === contextMenuItem.id && event.linkUrl) {
-        chrome.storage.sync.get("queryParameter", ({queryParameter}) => {
+function handleQueryGrab(event) {
+    chrome.storage.sync.get("queryParameter", ({queryParameter}) => {
+        if (getQueryParams(event.linkUrl)[queryParameter]) {
+            console.log(`${queryParameter} = ${getQueryParams(event.linkUrl)[queryParameter]}`)
+            copyToClipboard(getQueryParams(event.linkUrl)[queryParameter])
+            notifyUserWithText(`Copied ${queryParameter}`);
+        } else {
+            notifyUserWithText(`${queryParameter ? queryParameter : "Selected param"} not in link`);
+        }
+    });
+}
+
+function handleOpeningNewUrlWithSavedQueryParam(event) {
+    chrome.storage.sync.get("queryParameter", ({queryParameter}) => {
+        chrome.storage.sync.get("url", ({url}) => {
             if (getQueryParams(event.linkUrl)[queryParameter]) {
                 console.log(`${queryParameter} = ${getQueryParams(event.linkUrl)[queryParameter]}`)
-                copyToClipboard(getQueryParams(event.linkUrl)[queryParameter])
-                notifyUserWithText(`Copied ${queryParameter}`);
+                let urlToVisit = "";
+                if(url && url.includes("?")){
+                    urlToVisit = url + "&" + queryParameter + "=" + getQueryParams(event.linkUrl)[queryParameter];
+                } else {
+                    urlToVisit = url + "?" + queryParameter + "=" + getQueryParams(event.linkUrl)[queryParameter];
+                }
+                chrome.tabs.create({url: urlToVisit});
+                notifyUserWithText(`Visited ${url}`);
             } else {
                 notifyUserWithText(`${queryParameter ? queryParameter : "Selected param"} not in link`);
             }
         });
+    });
+}
+
+const clickHandler = (event) => {
+    if (event.menuItemId === contextMenuItem.id && event.linkUrl) {
+        handleQueryGrab(event);
+    } else if (event.menuItemId === contextMenuItemUrl.id && event.linkUrl) {
+        handleOpeningNewUrlWithSavedQueryParam(event);
     }
 }
 
 const loadApp = () => {
     console.log("init")
     chrome.contextMenus.create(contextMenuItem);
+    chrome.contextMenus.create(contextMenuItemUrl);
 
     chrome.contextMenus.onClicked.addListener(clickHandler);
     console.log("done")
