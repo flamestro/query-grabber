@@ -1,7 +1,7 @@
 {
   "name": "Query Grabber",
   "description": "This extension allows users to copy query parameters from links.",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "manifest_version": 2,
   "background": {
     "page": "/view/background.html"

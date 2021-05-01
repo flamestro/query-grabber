@@ -44,10 +44,16 @@
             padding-bottom: 10px;
             text-align: center;
         }
+
+        #inputField {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-<div>
+<div id="inputField">
     <label for="queryParam">Query param to grab:</label>
     <input type="text" id="queryParam" name="queryParam">
     <br/>
